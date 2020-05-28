@@ -13,7 +13,6 @@ rm config/environments/development/database.json && mv platformsh/database.js co
 rm config/environments/development/server.json && mv platformsh/server.json config/environments/development/server.json
 
 # Move index.html with working admin link.
-mv public/index.html template.html
 mv platformsh/index.html public/index.html
 
 # Rebuild the admin panel.
