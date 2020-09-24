@@ -1,0 +1,73 @@
+{
+  "name": "is-touch-device",
+  "version": "1.0.1",
+  "description": "Is the current JS environment a touch device?",
+  "main": "build",
+  "scripts": {
+    "prepublish": "safe-publish-latest && (not-in-publish || npm run build)",
+    "clean": "rimraf build && mkdirp src",
+    "prebuild": "npm run clean",
+    "build": "babel src --out-dir build",
+    "prelint": "editorconfig-tools check * src/* test/*",
+    "lint": "eslint .",
+    "coverage": "cross-env NODE_ENV=test nyc npm run tests-only",
+    "tests-only": "mocha test",
+    "pretest": "npm run lint",
+    "test": "npm run tests-only"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/airbnb/is-touch-device.git"
+  },
+  "keywords": [
+    "touch",
+    "is",
+    "documenttouch",
+    "maxtouchpoints",
+    "msmaxtouchpoints",
+    "touchpoints",
+    "ontouchstart"
+  ],
+  "author": "Jordan Harband <ljharb@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/airbnb/is-touch-device/issues"
+  },
+  "homepage": "https://github.com/airbnb/is-touch-device#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-istanbul": "^4.1.4",
+    "babel-preset-airbnb": "^2.2.3",
+    "babel-register": "^6.24.1",
+    "chai": "^4.0.2",
+    "cross-env": "^5.0.1",
+    "editorconfig-tools": "^0.1.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.3.0",
+    "in-publish": "^2.0.0",
+    "mkdirp": "^0.5.1",
+    "mocha": "^3.4.2",
+    "mocha-wrap": "^2.1.1",
+    "nyc": "^10.3.2",
+    "rimraf": "^2.6.1",
+    "safe-publish-latest": "^1.1.1"
+  },
+  "contributors": [
+    {
+      "name": "Jordan Harband",
+      "email": "ljharb@gmail.com",
+      "url": "https://github.com/ljharb"
+    },
+    {
+      "name": "Maja Wichrowska",
+      "email": "maja.wichrowska@airbnb.com"
+    },
+    {
+      "name": "Victor",
+      "email": "victor@turo.com",
+      "url": "https://github.com/tagoro9"
+    }
+  ]
+}

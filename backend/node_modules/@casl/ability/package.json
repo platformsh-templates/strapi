@@ -1,0 +1,81 @@
+{
+  "name": "@casl/ability",
+  "version": "4.1.6",
+  "description": "CASL is an isomorphic authorization JavaScript library which restricts what resources a given user is allowed to access",
+  "funding": "https://github.com/stalniy/casl/blob/master/BACKERS.md",
+  "main": "dist/umd/index.js",
+  "module": "dist/es5m/index.js",
+  "es2015": "dist/es6/index.js",
+  "typings": "./index.d.ts",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stalniy/casl.git"
+  },
+  "homepage": "https://stalniy.github.io/casl/",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build.core": "rollup -c ../../rollup.config.js -n casl -g sift:sift",
+    "build.extra": "rollup -c ../../rollup.config.js -i src/extra.ts -n casl.extra",
+    "build.types": "rm -rf dist/types/* && tsc && cp index.metadata.json dist/types",
+    "build": "npm run build.types && npm run build.core && npm run build.extra",
+    "lint": "eslint --ext .js,.ts src/ spec/",
+    "test": "NODE_ENV=test jest --config ../../tools/jest.config.js --env node",
+    "prerelease": "npm run lint && npm test && NODE_ENV=production npm run build",
+    "release": "semantic-release -e ../../tools/semantic-release"
+  },
+  "keywords": [
+    "permissions",
+    "authorization",
+    "access control",
+    "security",
+    "acl",
+    "abac",
+    "rbac",
+    "ibac",
+    "cancan"
+  ],
+  "author": "Sergii Stotskyi <sergiy.stotskiy@freaksidea.com>",
+  "license": "MIT",
+  "engines": {
+    "npm": "^6.0.0"
+  },
+  "dependencies": {
+    "sift": "^13.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.10.0",
+    "@babel/plugin-transform-typescript": "^7.10.0",
+    "@babel/preset-env": "^7.8.4",
+    "@rollup/plugin-babel": "^5.0.2",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/github": "^7.0.7",
+    "@semantic-release/npm": "^7.0.5",
+    "@types/node": "^14.0.5",
+    "@typescript-eslint/eslint-plugin": "3.10.1",
+    "babel-jest": "^26.0.0",
+    "chai": "^4.1.0",
+    "chai-spies": "^1.0.0",
+    "eslint": "^7.1.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-airbnb-typescript": "^9.0.0",
+    "eslint-plugin-import": "^2.20.2",
+    "jest": "^26.0.0",
+    "rollup": "^2.10.9",
+    "rollup-plugin-sourcemaps": "^0.6.2",
+    "rollup-plugin-terser": "^7.0.0",
+    "semantic-release": "17.1.1",
+    "typescript": "~3.8.0"
+  },
+  "files": [
+    "dist",
+    "*.d.ts",
+    "extra"
+  ]
+}

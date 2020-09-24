@@ -1,0 +1,23 @@
+[
+  "protocol",
+  "host",
+  "hostname",
+  "family",
+  "port",
+  "localAddress",
+  "socketPath",
+  "method",
+  "path",
+  "headers",
+  "auth",
+  "agent",
+
+  "pfx",
+  "key",
+  "passphrase",
+  "cert",
+  "ca",
+  "ciphers",
+  "rejectUnauthorized",
+  "secureProtocol"
+]

@@ -1,0 +1,31 @@
+[
+  "method",
+
+  "url",
+  "uri",
+  "qs",
+
+  "form",
+  "json",
+  "body",
+  "multipart",
+
+  "auth",
+
+  "gzip",
+  "encoding",
+  "parse",
+  "stringify",
+
+  "proxy",
+  "tunnel",
+
+  "headers",
+  "cookie",
+  "length",
+  "callback",
+  "redirect",
+  "timeout",
+  "har",
+  "end"
+]

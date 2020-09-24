@@ -1,0 +1,15 @@
+{
+  "method": {
+    "get"      : ["select"]
+  },
+  "option": {
+    "qs"       : ["where"]
+  },
+  "custom": {
+    "alias"    : ["query", "api"],
+    "auth"     : ["token"],
+    "oauth"    : [],
+    "options"  : [],
+    "request"  : []
+  }
+}

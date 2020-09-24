@@ -1,0 +1,27 @@
+{
+  "name": "@request/interface",
+  "version": "0.1.0",
+  "description": "Common Interface for HTTP Clients",
+  "keywords": [
+    "http",
+    "client",
+    "interface"
+  ],
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/request/interface",
+  "author": "Simeon Velichkov <simeonvelichkov@gmail.com> (http://simov.github.io)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/request/interface.git"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "main": "index.js",
+  "files": [
+    "config/",
+    "LICENSE",
+    "README.md",
+    "index.js"
+  ],
+  "scripts": {}
+}

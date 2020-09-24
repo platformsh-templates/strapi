@@ -1,0 +1,60 @@
+{
+  "name": "react-with-styles-interface-css",
+  "version": "6.0.0",
+  "description": "Interface for react-with-styles outputting CSS",
+  "repository": "airbnb/react-with-styles-interface-css/tree/master/packages/interface",
+  "homepage": "https://github.com/airbnb/react-with-styles-interface-css#readme",
+  "bugs": "https://github.com/airbnb/react-with-styles-interface-css/issues",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "npm run clean",
+    "build": "babel src --out-dir dist",
+    "clean": "rimraf dist",
+    "dev": "npm run build -- --watch",
+    "lint": "eslint .",
+    "jest": "jest",
+    "pretest": "npm run lint",
+    "test": "npm run test:only",
+    "test:only": "npm run jest",
+    "check-changelog": "expr $(git status --porcelain 2>/dev/null| grep \"^\\s*[AM].*packages/interface/CHANGELOG.md\" | wc -l) >/dev/null || (echo 'Please edit CHANGELOG.md' && exit 1)",
+    "check-only-changelog-changed": "(expr $(git status --porcelain 2>/dev/null| grep -v \"CHANGELOG.md\" | wc -l) >/dev/null && echo 'Only CHANGELOG.md may have uncommitted changes' && exit 1) || exit 0",
+    "tag": "git tag interface-v$npm_package_version",
+    "postversion": "git commit package.json CHANGELOG.md -m \"[interface] Version $npm_package_version\" && npm run tag && git push && git push --tags && npm publish",
+    "prepublish": "in-publish && safe-publish-latest && npm run build || not-in-publish",
+    "preversion": "npm test && npm run check-changelog && npm run check-only-changelog-changed",
+    "version:major": "npm --no-git-tag-version version major",
+    "version:minor": "npm --no-git-tag-version version minor",
+    "version:patch": "npm --no-git-tag-version version patch"
+  },
+  "keywords": [
+    "react-with-styles",
+    "css-in-js",
+    "css"
+  ],
+  "author": "Felipe Vargas <felipe@fvgs.ai> (fvgs.ai)",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/runtime": "^7.0.0",
+    "babel-jest": "^24.9.0",
+    "babel-preset-airbnb": "^4.0.1",
+    "chai": "^4.2.0",
+    "eslint": "^5.6.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "in-publish": "^2.0.0",
+    "jest": "^24.9.0",
+    "object.entries": "^1.0.4",
+    "rimraf": "^2.6.2",
+    "safe-publish-latest": "^1.1.2"
+  },
+  "dependencies": {
+    "array.prototype.flat": "^1.2.1",
+    "global-cache": "^1.2.1"
+  },
+  "peerDependencies": {
+    "@babel/runtime": "^7.0.0",
+    "react-with-styles": "^3.0.0 || ^4.0.0"
+  }
+}

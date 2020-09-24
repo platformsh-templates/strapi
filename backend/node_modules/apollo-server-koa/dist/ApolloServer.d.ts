@@ -1,0 +1,23 @@
+import Koa, { Middleware } from 'koa';
+import corsMiddleware from '@koa/cors';
+import bodyParser from 'koa-bodyparser';
+import { ApolloServerBase, GraphQLOptions } from 'apollo-server-core';
+export { GraphQLOptions, GraphQLExtension } from 'apollo-server-core';
+export interface GetMiddlewareOptions {
+    path?: string;
+    cors?: corsMiddleware.Options | boolean;
+    bodyParserConfig?: bodyParser.Options | boolean;
+    onHealthCheck?: (ctx: Koa.Context) => Promise<any>;
+    disableHealthCheck?: boolean;
+}
+export interface ServerRegistration extends GetMiddlewareOptions {
+    app: Koa;
+}
+export declare class ApolloServer extends ApolloServerBase {
+    createGraphQLServerOptions(ctx: Koa.Context): Promise<GraphQLOptions>;
+    protected supportsSubscriptions(): boolean;
+    protected supportsUploads(): boolean;
+    applyMiddleware({ app, ...rest }: ServerRegistration): void;
+    getMiddleware({ path, cors, bodyParserConfig, disableHealthCheck, onHealthCheck, }?: GetMiddlewareOptions): Middleware;
+}
+//# sourceMappingURL=ApolloServer.d.ts.map

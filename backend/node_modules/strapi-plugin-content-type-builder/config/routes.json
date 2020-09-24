@@ -1,0 +1,116 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/reserved-names",
+      "handler": "Builder.getReservedNames",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/connections",
+      "handler": "Connections.getConnections",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/content-types",
+      "handler": "ContentTypes.getContentTypes",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/content-types/:uid",
+      "handler": "ContentTypes.getContentType",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/content-types",
+      "handler": "ContentTypes.createContentType",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/content-types/:uid",
+      "handler": "ContentTypes.updateContentType",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/content-types/:uid",
+      "handler": "ContentTypes.deleteContentType",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/components",
+      "handler": "Components.getComponents",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/components/:uid",
+      "handler": "Components.getComponent",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/components",
+      "handler": "Components.createComponent",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/components/:uid",
+      "handler": "Components.updateComponent",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/components/:uid",
+      "handler": "Components.deleteComponent",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/component-categories/:name",
+      "handler": "ComponentCategories.editCategory",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/component-categories/:name",
+      "handler": "ComponentCategories.deleteCategory",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

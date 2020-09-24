@@ -1,0 +1,40 @@
+{
+  "name": "deep-copy",
+  "version": "1.4.2",
+  "description": "Deep copy objects and arrays",
+  "keywords": [
+    "deep",
+    "copy",
+    "object",
+    "array"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/simov/deep-copy",
+  "author": "Simeon Velichkov <simeonvelichkov@gmail.com> (https://simov.github.io)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simov/deep-copy.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "coveralls": "^2.11.15",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0"
+  },
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "index.d.ts",
+    "index.js"
+  ],
+  "scripts": {
+    "test": "npm run test-ci",
+    "test-ci": "mocha test/",
+    "test-cov": "istanbul cover _mocha test/"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  }
+}

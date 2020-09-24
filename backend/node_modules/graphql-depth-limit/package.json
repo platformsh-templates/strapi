@@ -1,0 +1,50 @@
+{
+  "name": "graphql-depth-limit",
+  "version": "1.1.0",
+  "description": "Limit the complexity of your GraphQL queries based on depth.",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "docs": "sed -n '/Documentation/q;p' README.md > README.bak.md; echo '## Documentation' >> README.bak.md; jsdoc2md --heading-depth 3 index.js >> README.bak.md && mv -f README.bak.md README.md",
+    "lint": "eslint index.js",
+    "test": "ava test.js"
+  },
+  "ava": {
+    "verbose": true
+  },
+  "files": [
+    "index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stems/graphql-depth-limit.git"
+  },
+  "keywords": [
+    "graphql",
+    "complexity",
+    "query",
+    "depth",
+    "limit"
+  ],
+  "author": "Andrew Carlson <acarl005@g.ucla.edu>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stems/graphql-depth-limit/issues"
+  },
+  "homepage": "https://github.com/stems/graphql-depth-limit#readme",
+  "peerDependencies": {
+    "graphql": "*"
+  },
+  "devDependencies": {
+    "ava": "^0.21.0",
+    "eslint": "^4.4.1",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "graphql": "^0.10.5",
+    "jsdoc-to-markdown": "^3.0.0"
+  },
+  "dependencies": {
+    "arrify": "^1.0.1"
+  }
+}

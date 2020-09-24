@@ -1,0 +1,29 @@
+'use strict';
+
+/**
+ * Module dependencies
+ */
+
+// Public node modules.
+const _ = require('lodash');
+const cron = require('node-schedule');
+
+/**
+ * CRON hook
+ */
+
+module.exports = strapi => {
+  return {
+    /**
+     * Initialize the hook
+     */
+
+    initialize() {
+      if (strapi.config.get('server.cron.enabled', false) === true) {
+        _.forEach(_.keys(strapi.config.get('functions.cron', {})), task => {
+          cron.scheduleJob(task, strapi.config.functions.cron[task]);
+        });
+      }
+    },
+  };
+};
