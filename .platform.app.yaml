@@ -75,6 +75,10 @@ mounts:
     'api':
         source: local
         source_path: api
+    # Allow for updates to the API (new JSONs) at runtime.
+    'build':
+        source: local
+        source_path: build
     # Allow for media uploads at runtime.
     'public/uploads':
         source: local
