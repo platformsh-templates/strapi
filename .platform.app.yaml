@@ -36,7 +36,7 @@ hooks:
         if [ ! -d extensions/documentation/config ]; then
             mkdir extensions/documentation/config
         fi
-        cp tmp-config/documentation/config/openapi.json extensions/documentation/config/settings.json
+        cp temp-config/documentation/config/openapi.json extensions/documentation/config/settings.json
 
 # The relationships of the application with services or other applications.
 #
