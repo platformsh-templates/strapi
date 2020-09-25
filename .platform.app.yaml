@@ -31,8 +31,10 @@ hooks:
         if [ "$PLATFORM_BRANCH" = master ]; then
             yarn build
         fi
+        yarn build
 
-        # Customize the Swagger/OpenAPI documentation and move into auto-generate path.
+        # Customize the Swagger/OpenAPI documentation by moving overrides back into 
+        # the auto-generate path.
         if [ ! -d extensions/documentation/config ]; then
             mkdir extensions/documentation/config
         fi
