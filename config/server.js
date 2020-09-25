@@ -11,7 +11,7 @@ module.exports = ({ env }) => ({
     // See https://strapi.io/documentation/v3.x/plugins/users-permissions.html#jwt-configuration
     admin: {
         auth: {
-          secret: env('PLATFORM_PROJECT_ENTROPY'),
+          secret: env('PLATFORM_PROJECT_ENTROPY', 'f99f63fd-fc78-4f82-9b00-84b575a71725'),
         },
     },
     // GraphQL endpoint configuration.
