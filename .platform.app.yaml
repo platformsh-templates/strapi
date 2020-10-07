@@ -1,0 +1,73 @@
+# This file describes an application. You can have multiple applications
+# in the same project.
+#
+# See https://docs.platform.sh/configuration/app.html
+
+# The name of this app. Must be unique within a project.
+name: app
+
+# The runtime the application uses. Strapi not yet suppported with NodeJS 14.
+type: nodejs:12
+
+# # Use Yarn instead of npm.
+build:
+    flavor: none
+
+# Build dependencies. 
+dependencies:
+    nodejs:
+        yarn: "1.22.5"
+
+# The hooks executed at various points in the lifecycle of the application.
+hooks:
+    build: |
+        yarn
+        yarn build
+
+# The relationships of the application with services or other applications.
+#
+# The left-hand side is the name of the relationship as it will be exposed
+# to the application in the PLATFORM_RELATIONSHIPS variable. The right-hand
+# side is in the form `<service name>:<endpoint name>`.
+relationships:
+  postgresdatabase: "dbpostgres:postgresql"
+
+# The configuration of app when it is exposed to the web.
+web:
+    locations:
+        # For serving the generated OpenAPI specification as part of the documentation.
+        "/docs/spec":
+            root: "extensions/documentation/documentation/1.0.0"
+            allow: true
+            scripts: false
+            index:
+                - full_documentation.json
+    commands:
+        start: |
+            # Production start on `master`, development server otherwise.
+            if [ "$PLATFORM_BRANCH" = master ]; then
+                NODE_ENV=production yarn start
+            else
+                yarn develop
+            fi
+
+# The size of the persistent disk of the application (in MB).
+disk: 1024
+
+# The 'mounts' describe writable, persistent filesystem mounts in the application.
+mounts:
+    # Strapi's cache directory.
+    '/.cache':
+        source: local
+        source_path: cache
+    # Give write access for the generated documentation json.
+    'extensions/documentation/documentation':
+        source: local
+        source_path: ext-documentation
+    # Allow for media uploads at runtime.
+    'public/uploads':
+        source: local
+        source_path: uploads
+
+
+        
