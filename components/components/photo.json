@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_components_photos",
+  "info": {
+    "name": "Image",
+    "icon": "file-image",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "Caption": {
+      "type": "string",
+      "maxLength": 128
+    }
+  }
+}

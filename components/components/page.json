@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_components_pages",
+  "info": {
+    "name": "Page",
+    "icon": "file",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "images": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.photo"
+    },
+    "Layout": {
+      "type": "enumeration",
+      "enum": [
+        "single_image",
+        "double_image",
+        "quattro_image"
+      ],
+      "required": true
+    }
+  }
+}

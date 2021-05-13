@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "books",
+  "info": {
+    "name": "Book",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Page": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.page"
+    },
+    "title": {
+      "type": "string"
+    },
+    "author": {
+      "collection": "author",
+      "via": "books"
+    }
+  }
+}

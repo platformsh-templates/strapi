@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "authors",
+  "info": {
+    "name": "Author",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "last_name": {
+      "type": "string"
+    },
+    "books": {
+      "via": "author",
+      "collection": "book",
+      "dominant": true
+    }
+  }
+}
