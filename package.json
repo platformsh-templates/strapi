@@ -24,7 +24,7 @@
     "strapi-plugin-email": "^3.6.5",
     "strapi-plugin-graphql": "^3.6.5",
     "strapi-plugin-upload": "^3.6.5",
-    "strapi-plugin-users-permissions": "^3.6.5",
+    "strapi-plugin-users-permissions": "Mint-Gold-Dust/strapi-plugin-users-permissions",
     "strapi-utils": "^3.6.5"
   },
   "author": {
