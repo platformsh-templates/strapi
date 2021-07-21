@@ -11,6 +11,8 @@
   },
   "devDependencies": {},
   "dependencies": {
+    "eth-sig-util": "^3.0.1",
+    "ethereumjs-util": "^7.1.0",
     "knex": "0.21.18",
     "pg": "^8.5.1",
     "platformsh-config": "^2.4.1",
