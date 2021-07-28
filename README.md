@@ -54,7 +54,7 @@ Customizing modules will differ slightly for each plugin. The `strapi-plugin-doc
 ## References
 
 * [Strapi.io](https://strapi.io/)
-* [Strapi Documentation](https://strapi.io/documentation/v3.x)
-* [Strapi Quick Start Guide](https://strapi.io/documentation/v3.x/getting-started/introduction.html)
+* [Strapi Documentation](https://strapi.io/documentation/developer-docs/latest/getting-started/introduction.html)
+* [Strapi Quick Start Guide](https://strapi.io/documentation/developer-docs/latest/getting-started/quick-start.html)
 * [Node.js on Platform.sh](https://docs.platform.sh/languages/nodejs.html)
 * [Multi-app on Platform.sh](https://docs.platform.sh/configuration/app/multi-app.html#multiple-applications)
