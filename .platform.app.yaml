@@ -13,7 +13,7 @@ type: nodejs:12
 build:
     flavor: none
 
-# Build dependencies. 
+# Build dependencies.
 dependencies:
     nodejs:
         yarn: "1.22.5"
@@ -29,7 +29,7 @@ hooks:
         # Platform.sh and overwritten during deployments. To prevent that, set aside during builds.
         if [ -n "$(ls -A extensions)" ]; then
             mkdir extensions-tmp && mv extensions/* extensions-tmp
-        fi        
+        fi
         if [ -n "$(ls -A api)" ]; then
             mkdir api-tmp && mv api/* api-tmp
         fi
@@ -43,7 +43,7 @@ hooks:
         # Copy overrides back to where they need to be.
         if [ -n "$(ls -A extensions-tmp)" ]; then
             cp -r extensions-tmp/* extensions
-        fi        
+        fi
         if [ -n "$(ls -A api-tmp)" ]; then
             cp -r api-tmp/* api
         fi
@@ -60,7 +60,15 @@ hooks:
 # to the application in the PLATFORM_RELATIONSHIPS variable. The right-hand
 # side is in the form `<service name>:<endpoint name>`.
 relationships:
-  postgresdatabase: "dbpostgres:postgresql"
+
+  # Un-comment the line below if you would like to use a postgres database
+  # postgresdatabase: "dbpostgres:postgresql"
+
+  # Un-comment the line below if you would like to use a mysql database
+  # mysqldatabase: "dbmysql:mysql"
+
+  # Un-comment the line below if you would like to use a myslq database
+  mongodatabase: "dbmongo:mongodb"
 
 # The configuration of app when it is exposed to the web.
 web:
@@ -110,6 +118,3 @@ mounts:
     'public/uploads':
         source: local
         source_path: uploads
-    
-
-        

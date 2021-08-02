@@ -14,6 +14,8 @@ Strapi is a Headless CMS framework written in Node.js.
 
 * Node.js 12
 * PostgreSQL 12
+* MongoDB 3
+* MySQL 10
 * Automatic TLS certificates
 * npm-based build
 * OpenAPI spec generation
@@ -36,20 +38,27 @@ The following changes have been made relative to the [quickstart Strapi project]
     * [`config-reader-nodejs`](https://github.com/platformsh/config-reader-nodejs): Provides convenience wrappers for accessing the Platform.sh environment variables.
     * `pg`: supports connection with PostgreSQL.
     * [`graphql`](https://strapi.io/documentation/v3.x/plugins/graphql.html): supports GraphQL queries.
-    * [`documentation`](https://github.com/strapi/strapi/tree/master/packages/strapi-plugin-documentation): generates an OpenAPI specification and Swagger documentation from your models. You can view the documentation at `/docs`, and the final spec at `/docs/spec`. 
+    * [`documentation`](https://github.com/strapi/strapi/tree/master/packages/strapi-plugin-documentation): generates an OpenAPI specification and Swagger documentation from your models. You can view the documentation at `/docs`, and the final spec at `/docs/spec`.
 * A `config/database.js` file has been modified. It uses `config-reader-nodejs` to retrieve PostgreSQL credentials and connect when Strapi is started.
 * A `config/server.js` file configures basic server settings, admin JWT authorization using the Platform.sh environment variable `PLATFORM_PROJECT_ENTROPY`, and GraphQL settings.
-* A `extensions/documentation/config/settings.json` file overrides the default front matter information in the generated pubic API documentation. 
+* A `extensions/documentation/config/settings.json` file overrides the default front matter information in the generated pubic API documentation.
 
 ## Local development
 
-The `config/database.js` file is set up to detect whether Strapi is running on Platform.sh or not using `config-reader-nodejs`. If Platform.sh is not detected, Strapi will default to a local SQLite database in`.tmp`. 
+The `config/database.js` file is set up to detect whether Strapi is running on Platform.sh or not using `config-reader-nodejs`. If Platform.sh is not detected, Strapi will default to a local SQLite database in`.tmp`.
 
 ## Extending
 
-You can add additional plugins for Strapi locally by adding them as dependencies using Yarn. In most cases, official Strapi modules can be added with `yarn strapi install <plugin-name>`. 
+You can add additional plugins for Strapi locally by adding them as dependencies using Yarn. In most cases, official Strapi modules can be added with `yarn strapi install <plugin-name>`.
 
-Customizing modules will differ slightly for each plugin. The `strapi-plugin-documentation` plugin for example generates an OpenAPI specification from your API and public Swagger documentation at `<your-domain>/docs`. Overrides are applied to that process using the `extensions/documentation/config/settings.json` file in this repository. In other cases, there will be a specific `overrides` subdirectory within `extensions/<plugin-name>` you will need to use, so check that plugin's documentation for details. Be aware of whether the plugin needs write access at runtime, and be sure to define matching mounts in your `.platform.app.yaml` file if necessary.  
+Customizing modules will differ slightly for each plugin. The `strapi-plugin-documentation` plugin for example generates an OpenAPI specification from your API and public Swagger documentation at `<your-domain>/docs`. Overrides are applied to that process using the `extensions/documentation/config/settings.json` file in this repository. In other cases, there will be a specific `overrides` subdirectory within `extensions/<plugin-name>` you will need to use, so check that plugin's documentation for details. Be aware of whether the plugin needs write access at runtime, and be sure to define matching mounts in your `.platform.app.yaml` file if necessary.
+
+## Switching Database
+
+### MongoDB
+
+
+
 
 ## References
 
