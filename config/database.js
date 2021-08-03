@@ -60,7 +60,7 @@ if (config.isValidPlatform() && !config.inBuild()) {
 }
 
 module.exports = {
-  defaultConnection: "default",
+  // defaultConnection: "default",
   connections: {
     default: {
       connector: "bookshelf",
