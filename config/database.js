@@ -1,7 +1,11 @@
 const config = require("platformsh-config").config();
 
+// Uncomment the line below if you would like to use a Postgres DB
 // let dbRelationshipPostgres = "postgresdatabase";
+
 let dbRelationshipMongo = "mongodatabase";
+
+// Uncomment the line below if you would like to use a MySQL DB
 // let dbRelationshipMySql = "dbmysql"
 
 // Strapi default sqlite settings.
