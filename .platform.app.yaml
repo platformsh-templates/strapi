@@ -62,19 +62,16 @@ disk: 1024
 mounts:
   # Strapi's cache directory.
   "/.cache":
-    source: local
-    source_path: cache
-
+     source: local
+     source_path: cache
    # Allow for updates to app folder
    "/app":
-    source: local
-    source_path: app
-
+     source: local
+     source_path: app
   # Allow for updates to .tmp file at runtime
   "/.tmp":
-    source: local
-    source_path: /.tmp
-
+     source: local
+     source_path: /.tmp
   # Allow for updates to the API (new JSONs) at runtime.
   "api":
     source: local
