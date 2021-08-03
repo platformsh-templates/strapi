@@ -26,7 +26,7 @@ if (config.isValidPlatform() && !config.inBuild()) {
     `Using Platform.sh configuration with relationship ${dbRelationshipMongo}.`
   );
 
-  mongoSettings = {
+  var mongoSettings = {
     client: "mongo",
     name: credentials.service,
     host: credentials.ip,
@@ -36,7 +36,7 @@ if (config.isValidPlatform() && !config.inBuild()) {
     password: credentials.password,
   };
 
-  mongoOptions = {
+  var mongoOptions = {
     ssl: false,
     authenticationDatabase: dbRelationshipMongo,
     // debug: false,
