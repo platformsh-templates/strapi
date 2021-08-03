@@ -32,9 +32,9 @@ if (config.isValidPlatform() && !config.inBuild()) {
     name: credentials.service,
     host: credentials.ip,
     port: credentials.port,
-    database: credentials.path,
-    // username: credentials.username,
-    // password: credentials.password,
+    // database: credentials.path,
+    // // username: credentials.username,
+    // // password: credentials.password,
   };
 
   var mongoOptions = {
