@@ -67,7 +67,7 @@ if (config.isValidPlatform() && !config.inBuild()) {
 }
 
 module.exports = {
-  defaultConnection: "default",
+  defaultConnection: "mongodb",
   connections: {
     default: {
       connector: "bookshelf",
