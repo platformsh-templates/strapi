@@ -30,7 +30,7 @@ if (config.isValidPlatform() && !config.inBuild()) {
   var mongoSettings = {
     client: "mongo",
     host: credentials.host,
-    uri: credentials.ip,
+    uri: credentials.hostname,
     port: credentials.port,
     database: credentials.path,
     username: credentials.username,
