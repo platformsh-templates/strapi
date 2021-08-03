@@ -4,7 +4,6 @@ const config = require("platformsh-config").config();
 let dbRelationshipMongo = "mongodatabase";
 // let dbRelationshipMySql = "dbmysql"
 
-
 // Strapi default sqlite settings.
 let settings = {
   client: "sqlite",
@@ -60,10 +59,10 @@ if (config.isValidPlatform() && !config.inBuild()) {
 }
 
 module.exports = {
-  // defaultConnection: "default",
+  defaultConnection: "default",
   connections: {
     default: {
-      connector: "bookshelf",
+      connector: "mongoose",
       settings: settings,
       options: options,
     },
