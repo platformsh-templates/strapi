@@ -1,11 +1,11 @@
 const config = require("platformsh-config").config();
 
-// Uncomment the line below if you would like to use a Postgres DB
+// Uncomment the line below if you would like to use a Postgres Database
 // let dbRelationshipPostgres = "postgresdatabase";
 
 let dbRelationshipMongo = "mongodatabase";
 
-// Uncomment the line below if you would like to use a MySQL DB
+// Uncomment the line below if you would like to use a MySQL Database
 // let dbRelationshipMySql = "dbmysql"
 
 // Strapi default sqlite settings.
@@ -29,9 +29,9 @@ if (config.isValidPlatform() && !config.inBuild()) {
     client: "mongodb",
     host: credentials.ip,
     port: credentials.port,
-    database: credentials.path,
-    username: credentials.username,
-    password: credentials.password,
+    // database: credentials.path,
+    // username: credentials.username,
+    // password: credentials.password,
   };
 
   options = {

@@ -3,14 +3,17 @@
 # Each service listed will be deployed
 # to power your Platform.sh project.
 
+# Un-comment the line below if you would like to use a postgres database
 # dbpostgres:
 #     type: postgresql:12
 #     disk: 256
 
+# Un-comment the line below if you would like to use a mongo database
 dbmongo:
   type: mongodb:3.6
   disk: 1024
-  
-# dbmysql:
+
+# Un-comment the line below if you would like to use a mysql database
+  # dbmysql:
 #     type: oracle-mysql:8.0
 #     disk: 256
