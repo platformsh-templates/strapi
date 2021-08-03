@@ -4,7 +4,7 @@
 # See https://docs.platform.sh/configuration/app.html
 
 # The name of this app. Must be unique within a project.
-name: app
+  name: app
 
 # The runtime the application uses. Strapi not yet suppported with NodeJS 14.
 type: nodejs:12
@@ -61,33 +61,40 @@ disk: 1024
 # The 'mounts' describe writable, persistent filesystem mounts in the application.
 mounts:
   # Strapi's cache directory.
-  "/.cache":
+   "/.cache":
      source: local
      source_path: cache
+
    # Allow for updates to app folder
    "/app":
      source: local
      source_path: app
+
   # Allow for updates to .tmp file at runtime
   "/.tmp":
      source: local
      source_path: /.tmp
+
   # Allow for updates to the API (new JSONs) at runtime.
   "api":
     source: local
     source_path: api
+
   # Allow GraphQL schema updates (JSON) at runtime.
   "exports":
     source: local
     source_path: exports
+
   # Give write access for extension configuration JSONs.
   "extensions":
     source: local
     source_path: extensions
+
   # Allow for custom components at runtime.
   "components":
     source: local
     source_path: components
+
   # Allow for media uploads at runtime.
   "public/uploads":
     source: local
