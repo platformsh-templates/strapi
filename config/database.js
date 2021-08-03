@@ -4,7 +4,7 @@ const config = require("platformsh-config").config();
 // let dbRelationshipPostgres = "postgresdatabase";
 
 // // Uncomment the line below if you would like to use a MongoDB Database
-// let dbRelationshipMongo = "mongodatabase";
+let dbRelationshipMongo = "mongodatabase";
 
 // Uncomment the line below if you would like to use a MySQL Database
 // let dbRelationshipMySql = "dbmysql"
@@ -21,10 +21,10 @@ let options = {
 
 if (config.isValidPlatform() && !config.inBuild()) {
   // Platform.sh database configuration.
-  const credentials = config.credentials("mongodatabase");
+  const credentials = config.credentials(dbRelationshipMongo);
 
   console.log(
-    `Using Platform.sh configuration with relationship mongodatabase.`
+    `Using Platform.sh configuration with relationship ${dbRelationshipMongo}.`
   );
 
   var mongoSettings = {
