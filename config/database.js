@@ -38,7 +38,7 @@ if (config.isValidPlatform() && !config.inBuild()) {
 
   mongoOptions = {
     ssl: false,
-    authenticationDatabase: mongoSettings.name,
+    authenticationDatabase: dbRelationshipMongo,
     // debug: false,
     // acquireConnectionTimeout: 100000,
     // pool: {
