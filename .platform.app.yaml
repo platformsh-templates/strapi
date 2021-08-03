@@ -60,13 +60,14 @@ disk: 1024
 
 # The 'mounts' describe writable, persistent filesystem mounts in the application.
 mounts:
-  # Strapi's cache directory.
-   "/.cache":
-     source: local
-     source_path: cache
 
-   # Allow for updates to app folder
-   "/app":
+    # Strapi's cache directory.
+    "/.cache":
+      source: local
+      source_path: cache
+
+  # Allow for updates to app folder
+  "/app":
      source: local
      source_path: app
 
