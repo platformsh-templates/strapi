@@ -25,8 +25,9 @@ if (config.isValidPlatform() && !config.inBuild()) {
     `Using Platform.sh configuration with relationship ${dbRelationshipMongo}.`
   );
 
-  settings = {
+  mongoSettings = {
     client: "mongo",
+    name: credentials.service,
     host: credentials.ip,
     port: credentials.port,
     database: credentials.path,
@@ -34,9 +35,9 @@ if (config.isValidPlatform() && !config.inBuild()) {
     password: credentials.password,
   };
 
-  options = {
+  mongoOptions = {
     ssl: false,
-    authenticationDatabase: "mongodatabase"
+    authenticationDatabase: dbsettings.name,
     // debug: false,
     // acquireConnectionTimeout: 100000,
     // pool: {
@@ -64,12 +65,17 @@ if (config.isValidPlatform() && !config.inBuild()) {
 }
 
 module.exports = {
-  defaultConnection: "default",
+  defaultConnection: "mongodb",
   connections: {
     default: {
-      connector: "mongoose",
+      connector: "bookshelf",
       settings: settings,
       options: options,
+    },
+    mongodb: {
+      connector: "mongoose",
+      settings: mongoSettings,
+      options: mongoOptions,
     },
   },
 };
