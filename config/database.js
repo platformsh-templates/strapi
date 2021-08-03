@@ -1,4 +1,3 @@
-const mongodb = require("mongodb");
 const config = require("platformsh-config").config();
 
 // Uncomment the line below if you would like to use a Postgres Database
@@ -22,9 +21,11 @@ let options = {
 
 if (config.isValidPlatform() && !config.inBuild()) {
   // Platform.sh database configuration.
-  const credentials = config.credentials("mongodb");
+  const credentials = config.credentials("mongodatabase");
 
-  console.log(`Using Platform.sh configuration with relationship ${mongodb}.`);
+  console.log(
+    `Using Platform.sh configuration with relationship ${mongodatabase}.`
+  );
 
   var mongoSettings = {
     client: "mongo",
@@ -37,7 +38,7 @@ if (config.isValidPlatform() && !config.inBuild()) {
 
   var mongoOptions = {
     ssl: false,
-    authenticationDatabase: "mongodb",
+    authenticationDatabase: "mongodatabase",
     // debug: false,
     // acquireConnectionTimeout: 100000,
     // pool: {
