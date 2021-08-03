@@ -24,7 +24,7 @@ if (config.isValidPlatform() && !config.inBuild()) {
   const credentials = config.credentials("mongodatabase");
 
   console.log(
-    `Using Platform.sh configuration with relationship ${mongodatabase}.`
+    `Using Platform.sh configuration with relationship mongodatabase.`
   );
 
   var mongoSettings = {
