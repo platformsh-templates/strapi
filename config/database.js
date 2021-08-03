@@ -2,6 +2,7 @@ const config = require("platformsh-config").config();
 
 // let dbRelationshipPostgres = "postgresdatabase";
 let dbRelationshipMongo = "mongodatabase";
+console.log(dbRelationshipMongo);
 // let dbRelationshipMySql = "dbmysql"
 
 // Strapi default sqlite settings.
@@ -16,18 +17,20 @@ let options = {
 
 if (config.isValidPlatform() && !config.inBuild()) {
   // Platform.sh database configuration.
-  const credentials = config.credentials(dbRelationshipMongo);
+  var client = await MongoClient.connect(
+    config.formattedCredentials("dbRelationshipMongo", "mongodb")
+  );
   console.log(
     `Using Platform.sh configuration with relationship ${dbRelationshipMongo}.`
   );
 
   settings = {
-    client: "mongodb",
-    host: credentials.ip,
-    port: credentials.port,
-    database: credentials.path,
-    username: credentials.username,
-    password: credentials.password,
+    client: client,
+    host: client.ip,
+    port: client.port,
+    database: client.path,
+    username: client.username,
+    password: client.password,
   };
 
   options = {
