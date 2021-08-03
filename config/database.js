@@ -3,6 +3,7 @@ const config = require("platformsh-config").config();
 // Uncomment the line below if you would like to use a Postgres Database
 // let dbRelationshipPostgres = "postgresdatabase";
 
+// Uncomment the line below if you would like to use a MongoDB Database
 let dbRelationshipMongo = "mongodatabase";
 
 // Uncomment the line below if you would like to use a MySQL Database
