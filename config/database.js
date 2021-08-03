@@ -17,7 +17,7 @@ let options = {
 
 if (config.isValidPlatform() && !config.inBuild()) {
   // Platform.sh database configuration.
-  var client = await MongoClient.connect(
+  var client = MongoClient.connect(
     config.formattedCredentials("dbRelationshipMongo", "mongodb")
   );
   console.log(
