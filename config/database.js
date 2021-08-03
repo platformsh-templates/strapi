@@ -37,7 +37,7 @@ if (config.isValidPlatform() && !config.inBuild()) {
   };
 
   var mongoOptions = {
-    ssl: true,
+    ssl: false,
     // debug: false,
     // acquireConnectionTimeout: 100000,
     // pool: {
