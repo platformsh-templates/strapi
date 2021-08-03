@@ -26,27 +26,28 @@ if (config.isValidPlatform() && !config.inBuild()) {
   );
 
   settings = {
-    client: "mongodb",
+    client: "mongo",
     host: credentials.ip,
     port: credentials.port,
-    // database: credentials.path,
-    // username: credentials.username,
-    // password: credentials.password,
+    database: credentials.path,
+    username: credentials.username,
+    password: credentials.password,
   };
 
   options = {
     ssl: false,
-    debug: false,
-    acquireConnectionTimeout: 100000,
-    pool: {
-      min: 0,
-      max: 10,
-      createTimeoutMillis: 30000,
-      acquireTimeoutMillis: 600000,
-      idleTimeoutMillis: 20000,
-      reapIntervalMillis: 20000,
-      createRetryIntervalMillis: 200,
-    },
+    authenticationDatabase: "mongodatabase"
+    // debug: false,
+    // acquireConnectionTimeout: 100000,
+    // pool: {
+    //   min: 0,
+    //   max: 10,
+    //   createTimeoutMillis: 30000,
+    //   acquireTimeoutMillis: 600000,
+    //   idleTimeoutMillis: 20000,
+    //   reapIntervalMillis: 20000,
+    //   createRetryIntervalMillis: 200,
+    // },
   };
 } else {
   if (config.isValidPlatform()) {
