@@ -29,17 +29,16 @@ if (config.isValidPlatform() && !config.inBuild()) {
 
   var mongoSettings = {
     client: "mongo",
-    name: credentials.service,
-    host: credentials.ip,
+    host: credentials.host,
     port: credentials.port,
-    // database: credentials.path,
-    // // username: credentials.username,
-    // // password: credentials.password,
+    database: credentials.path,
+    username: credentials.username,
+    password: credentials.password,
   };
 
   var mongoOptions = {
     ssl: false,
-    authenticationDatabase: dbRelationshipMongo,
+    authenticationDatabase: "mongodatabase",
     // debug: false,
     // acquireConnectionTimeout: 100000,
     // pool: {
