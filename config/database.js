@@ -22,6 +22,7 @@ let options = {
 if (config.isValidPlatform() && !config.inBuild()) {
   // Platform.sh database configuration.
   const credentials = config.credentials(dbRelationshipMongo);
+
   console.log(
     `Using Platform.sh configuration with relationship ${dbRelationshipMongo}.`
   );
@@ -69,7 +70,7 @@ module.exports = {
   defaultConnection: "mongodb",
   connections: {
     default: {
-      connector: "mongoose",
+      connector: "bookshelf",
       settings: settings,
       options: options,
     },
