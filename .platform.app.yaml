@@ -11,19 +11,19 @@ type: nodejs:12
 
 # Use Yarn instead of npm.
 build:
-    flavor: none
+  flavor: none
 
 # Build dependencies.
 dependencies:
-    nodejs:
-        yarn: "1.22.5"
+  nodejs:
+    yarn: "1.22.5"
 
 # The hooks executed at various points in the lifecycle of the application.
 hooks:
-    build: |
-        # Download dependencies and build Strapi.
-        yarn &&
-        yarn build
+  build: |
+    # Download dependencies and build Strapi.
+    yarn &&
+    yarn build
 
 # The relationships of the application with services or other applications.
 #
@@ -31,7 +31,6 @@ hooks:
 # to the application in the PLATFORM_RELATIONSHIPS variable. The right-hand
 # side is in the form `<service name>:<endpoint name>`.
 relationships:
-
   # Un-comment the line below if you would like to use a postgres database
   # postgresdatabase: "dbpostgres:postgresql"
 
@@ -43,33 +42,45 @@ relationships:
 
 # The configuration of app when it is exposed to the web.
 web:
-    locations:
-        # For serving the generated OpenAPI specification as part of the documentation.
-        "/docs/spec":
-            root: "extensions/documentation/documentation/1.0.0"
-            allow: true
-            scripts: false
-            index:
-                - full_documentation.json
-    commands:
-        start: |
-            # Production start on all environments
-              NODE_ENV=production yarn start
+  locations:
+    # For serving the generated OpenAPI specification as part of the documentation.
+    "/docs/spec":
+      root: "extensions/documentation/documentation/1.0.0"
+      allow: true
+      scripts: false
+      index:
+        - full_documentation.json
+  commands:
+    start: |
+      # Production start on all environments
+        NODE_ENV=production yarn start
 
 # The size of the persistent disk of the application (in MB).
 disk: 1024
 
 # The 'mounts' describe writable, persistent filesystem mounts in the application.
 mounts:
-    # Strapi's cache directory.
-    '/.cache':
-        source: local
-        source_path: cache
-    # Give write access for extension configuration JSONs.
-    'extensions':
-        source: local
-        source_path: extensions
-    # Allow for media uploads at runtime.
-    'public/uploads':
-        source: local
-        source_path: uploads
+  # Strapi's cache directory.
+  "/.cache":
+    source: local
+    source_path: cache
+  # Allow for updates to the API (new JSONs) at runtime.
+  "api":
+    source: local
+    source_path: api
+  # Allow GraphQL schema updates (JSON) at runtime.
+  "exports":
+    source: local
+    source_path: exports
+  # Give write access for extension configuration JSONs.
+  "extensions":
+    source: local
+    source_path: extensions
+  # Allow for custom components at runtime.
+  "components":
+    source: local
+    source_path: components
+  # Allow for media uploads at runtime.
+  "public/uploads":
+    source: local
+    source_path: uploads
