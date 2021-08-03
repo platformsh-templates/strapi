@@ -4,7 +4,7 @@
 # See https://docs.platform.sh/configuration/app.html
 
 # The name of this app. Must be unique within a project.
-  name: app
+name: app
 
 # The runtime the application uses. Strapi not yet suppported with NodeJS 14.
 type: nodejs:12
