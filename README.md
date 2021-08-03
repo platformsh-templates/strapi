@@ -97,59 +97,60 @@ If you prefer to use MySQL as your preferred database, you can use it by followi
   };
 
   if (config.isValidPlatform() && !config.inBuild()) {
+    // Platform.sh database configuration.
+    const credentials = config.credentials(dbRelationshipMySql);
 
-  // Platform.sh database configuration.
-  const credentials = config.credentials(dbRelationshipMongo);
+    console.log(
+      `Using Platform.sh configuration with relationship ${dbRelationshipMySql}.`
+    );
 
-  console.log(
-    `Using Platform.sh configuration with relationship ${dbRelationshipMongo}.`
-  );
+    mySqlSettings = {
+      client: "mysql",
+      host: credentials.ip,
+      port: credentials.port,
+      database: credentials.path,
+      username: credentials.username,
+      password: credentials.password,
+    };
 
-  mySqlSettings = {
-    client: "mysql",
-    host: credentials.ip,
-    port: credentials.port,
-    database: credentials.path,
-    username: credentials.username,
-    password: credentials.password,
-  };
-
-  mySqlOptions = {
-    ssl: false,
-    debug: false,
-    acquireConnectionTimeout: 100000,
-    pool: {
-      min: 0,
-      max: 10,
-      createTimeoutMillis: 30000,
-      acquireTimeoutMillis: 600000,
-      idleTimeoutMillis: 20000,
-      reapIntervalMillis: 20000,
-      createRetryIntervalMillis: 200
-    }
-  };
-
+    mySqlOptions = {
+      ssl: false,
+      debug: false,
+      acquireConnectionTimeout: 100000,
+      pool: {
+        min: 0,
+        max: 10,
+        createTimeoutMillis: 30000,
+        acquireTimeoutMillis: 600000,
+        idleTimeoutMillis: 20000,
+        reapIntervalMillis: 20000,
+        createRetryIntervalMillis: 200,
+      },
+    };
   } else {
     if (config.isValidPlatform()) {
-          // Build hook configuration message.
-          console.log('Using default configuration during Platform.sh build hook until relationships are available.');
+      // Build hook configuration message.
+      console.log(
+        "Using default configuration during Platform.sh build hook until relationships are available."
+      );
     } else {
-          // Strapi default local configuration.
-          console.log('Not in a Platform.sh Environment. Using default local sqlite configuration.');
+      // Strapi default local configuration.
+      console.log(
+        "Not in a Platform.sh Environment. Using default local sqlite configuration."
+      );
     }
   }
 
   module.exports = {
-    defaultConnection: 'default',
+    defaultConnection: "default",
     connections: {
       default: {
-        connector: 'bookshelf',
+        connector: "bookshelf",
         settings: settings,
         options: options,
-      }
-    }
+      },
+    },
   };
-
   ```
 
 ## References
