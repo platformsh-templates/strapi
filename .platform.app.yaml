@@ -30,14 +30,7 @@ hooks:
 # to the application in the PLATFORM_RELATIONSHIPS variable. The right-hand
 # side is in the form `<service name>:<endpoint name>`.
 relationships:
-  # Un-comment the line below if you would like to use a postgres database
-  # postgresdatabase: "dbpostgres:postgresql"
-
-  # Un-comment the line below if you would like to use a mysql database
    mysqldatabase: "dbmysql:mysql"
-
-  # Un-comment the line below if you would like to use a myslq database
-  # mongodatabase: "dbmongo:mongodb"
 
 # The configuration of app when it is exposed to the web.
 web:
@@ -64,10 +57,10 @@ mounts:
         source: local
         source_path: cache
 
-    # # Mount .tmp file in the app folder
-    # '.tmp':
-    #     source: local
-    #     source_path: app
+    # Mount .tmp file in the app folder
+    '.tmp':
+        source: local
+        source_path: app
 
     # Give write access for extension configuration JSONs.
     'extensions':

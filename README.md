@@ -63,7 +63,7 @@ If you prefer to use MongoDB as your preferred database, you can use it by follo
   ```yaml
   dbmongo:
     type: mongodb:3.6
-    disk: 1024
+    disk: 512
   ```
 
   Note that the minimum disk size for MongoDB is 512MB.
@@ -76,7 +76,8 @@ If you prefer to use MongoDB as your preferred database, you can use it by follo
      mongodatabase: "dbmongo:mongodb"
   ```
 
-- Go to the config folder, locate the database.json file and replace the contents with the following
+- Go to the config folder, locate the `database.js` file in the `config` folder and replace the content with the following
+
 
   ```js
   const config = require("platformsh-config").config();
@@ -151,17 +152,17 @@ If you prefer to use MySQL as your preferred database, you can use it by followi
     disk: 256
   ```
 
-  Note that the minimum disk size for mysql/oracle-mysql is 256MB.
+  Note that the minimum disk size for **mysql/oracle-mysql** is **256MB**.
   <br>
 
-- Locate your `.platform.app.yaml` file and replace the relationship name to match the mysql database you have added
+- Locate your `.platform.app.yaml` file and replace the relationship name to match the mysql database service you added in the `services.yaml` file
 
   ```yaml
   relationships:
      mysqldatabase: "dbmysql:mysql"
   ```
 
-- Go to the config folder, locate the database.json file and replace the contents with the following
+- Go to the config folder, locate the `database.js` file in the `config` folder and replace the contents with the following
 
   ```js
   const config = require("platformsh-config").config();
