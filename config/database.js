@@ -38,17 +38,6 @@ if (config.isValidPlatform() && !config.inBuild()) {
 
   var mongoOptions = {
     ssl: true,
-    // debug: false,
-    // acquireConnectionTimeout: 100000,
-    // pool: {
-    //   min: 0,
-    //   max: 10,
-    //   createTimeoutMillis: 30000,
-    //   acquireTimeoutMillis: 600000,
-    //   idleTimeoutMillis: 20000,
-    //   reapIntervalMillis: 20000,
-    //   createRetryIntervalMillis: 200,
-    // },
   };
 } else {
   if (config.isValidPlatform()) {
