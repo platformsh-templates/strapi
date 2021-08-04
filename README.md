@@ -187,16 +187,16 @@ If you prefer to use MySQL as your preferred database, you can use it by followi
       `Using Platform.sh configuration with relationship ${dbRelationshipMySql}.`
     );
 
-    mySqlSettings = {
+    settings = {
       client: "mysql",
-      host: credentials.ip,
+      host: credentials.host,
       port: credentials.port,
       database: credentials.path,
       username: credentials.username,
       password: credentials.password,
     };
 
-    mySqlOptions = {
+    options = {
       ssl: false,
       debug: false,
       acquireConnectionTimeout: 100000,
