@@ -56,6 +56,87 @@ Customizing modules will differ slightly for each plugin. The `strapi-plugin-doc
 ## Switching Database
 
 ### MongoDB
+If you prefer to use MongoDB as your preferred database, you can use it by following these steps.
+
+- Replace the `dbposgres` in the services.yaml file with the following:
+
+  ```yaml
+  dbmongo:
+    type: mongodb:3.6
+    disk: 1024
+  ```
+
+  Note that the minimum disk size for MongoDB is 512MB.
+  <br>
+
+- Locate your `.platform.app.yaml` file and replace the relationship name to match the mysql database you have added
+
+  ```yaml
+  relationships:
+     mongodatabase: "dbmongo:mongodb"
+  ```
+
+- Go to the config folder, locate the database.json file and replace the contents with the following
+
+  ```js
+  const config = require("platformsh-config").config();
+
+  let dbRelationshipMongo = "mongodatabase";
+
+  // Strapi default sqlite settings.
+  let settings = {
+    client: "sqlite",
+    filename: process.env.DATABASE_FILENAME || ".tmp/data.db",
+  };
+
+  let options = {
+    useNullAsDefault: true,
+  };
+
+  if (config.isValidPlatform() && !config.inBuild()) {
+  // Platform.sh database configuration.
+  const credentials = config.credentials(dbRelationshipMongo);
+
+  console.log(
+    `Using Platform.sh configuration with relationship ${dbRelationshipMongo}.`
+  );
+
+  settings = {
+    client: "mongo",
+    host: credentials.host,
+    port: credentials.port,
+    database: credentials.path,
+    username: credentials.username,
+    password: credentials.password,
+  };
+  options = {
+    ssl: false,
+    authenticationDatabase: "main",
+  };
+  } else {
+  if (config.isValidPlatform()) {
+    // Build hook configuration message.
+    console.log(
+      "Using default configuration during Platform.sh build hook until relationships are available."
+    );
+  } else {
+    // Strapi default local configuration.
+    console.log(
+      "Not in a Platform.sh Environment. Using default local sqlite configuration."
+    );
+  }
+  }
+
+  module.exports = {
+   defaultConnection: "default",
+   connections: {
+    default: {
+      connector: "mongoose",
+      settings: settings,
+      options: options,
+    },
+   },
+  };
 
 ### MySQL
 
