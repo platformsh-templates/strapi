@@ -13,20 +13,6 @@ let options = {
   useNullAsDefault: true,
 };
 
-const config = require("platformsh-config").config();
-
-let dbRelationshipMySql = "dbmysql";
-
-// Strapi default sqlite settings.
-let settings = {
-  client: "sqlite",
-  filename: process.env.DATABASE_FILENAME || ".tmp/data.db",
-};
-
-let options = {
-  useNullAsDefault: true,
-};
-
 if (config.isValidPlatform() && !config.inBuild()) {
   // Platform.sh database configuration.
   const credentials = config.credentials(dbRelationshipMySql);
@@ -35,7 +21,7 @@ if (config.isValidPlatform() && !config.inBuild()) {
     `Using Platform.sh configuration with relationship ${dbRelationshipMySql}.`
   );
 
-  mySqlSettings = {
+  settings = {
     client: "mysql",
     host: credentials.host,
     port: credentials.port,
@@ -44,7 +30,7 @@ if (config.isValidPlatform() && !config.inBuild()) {
     password: credentials.password,
   };
 
-  mySqlOptions = {
+ options = {
     ssl: false,
     debug: false,
     acquireConnectionTimeout: 100000,
