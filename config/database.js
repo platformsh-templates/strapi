@@ -1,6 +1,5 @@
 const config = require("platformsh-config").config();
 
-// // Uncomment the line below if you would like to use a MongoDB Database
 let dbRelationshipMySql = "mysqldatabase";
 
 // Strapi default sqlite settings.
@@ -23,14 +22,14 @@ if (config.isValidPlatform() && !config.inBuild()) {
 
   settings = {
     client: "mysql",
-    host: credentials.host,
+    host: credentials.ip,
     port: credentials.port,
     database: credentials.path,
     username: credentials.username,
     password: credentials.password,
   };
 
- options = {
+  options = {
     ssl: false,
     debug: false,
     acquireConnectionTimeout: 100000,
