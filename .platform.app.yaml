@@ -64,7 +64,7 @@ mounts:
         source: local
         source_path: cache
 
-    '/app/.tmp':
+    '.tmp':
         source: local
         source_path: app
 
