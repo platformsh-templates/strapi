@@ -63,12 +63,11 @@ mounts:
     '/.cache':
         source: local
         source_path: cache
-    '/app':
+
+    '/app/.tmp':
         source: local
         source_path: app
-    '.tmp':
-        source: local
-        source_path: .tmp
+        
     # Give write access for extension configuration JSONs.
     'extensions':
         source: local
