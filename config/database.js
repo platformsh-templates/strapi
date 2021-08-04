@@ -1,11 +1,11 @@
 const config = require("platformsh-config").config();
 
-let dbRelationshipMySql = "mysqldatabase";
+let dbRelationship = "postgresdatabase";
 
 // Strapi default sqlite settings.
-let settings = {
-  client: "sqlite",
-  filename: process.env.DATABASE_FILENAME || ".tmp/data.db",
+let settings =  {
+  client: 'sqlite',
+  filename: process.env.DATABASE_FILENAME || '.tmp/data.db',
 };
 
 let options = {
@@ -14,19 +14,16 @@ let options = {
 
 if (config.isValidPlatform() && !config.inBuild()) {
   // Platform.sh database configuration.
-  const credentials = config.credentials(dbRelationshipMySql);
-
-  console.log(
-    `Using Platform.sh configuration with relationship ${dbRelationshipMySql}.`
-  );
+  const credentials = config.credentials(dbRelationship);
+  console.log(`Using Platform.sh configuration with relationship ${dbRelationship}.`);
 
   settings = {
-    client: "mysql",
+    client: "postgres",
     host: credentials.ip,
     port: credentials.port,
     database: credentials.path,
     username: credentials.username,
-    password: credentials.password,
+    password: credentials.password
   };
 
   options = {
@@ -40,30 +37,26 @@ if (config.isValidPlatform() && !config.inBuild()) {
       acquireTimeoutMillis: 600000,
       idleTimeoutMillis: 20000,
       reapIntervalMillis: 20000,
-      createRetryIntervalMillis: 200,
-    },
+      createRetryIntervalMillis: 200
+    }
   };
 } else {
-  if (config.isValidPlatform()) {
-    // Build hook configuration message.
-    console.log(
-      "Using default configuration during Platform.sh build hook until relationships are available."
-    );
-  } else {
-    // Strapi default local configuration.
-    console.log(
-      "Not in a Platform.sh Environment. Using default local sqlite configuration."
-    );
-  }
+    if (config.isValidPlatform()) {
+          // Build hook configuration message.
+          console.log('Using default configuration during Platform.sh build hook until relationships are available.');
+    } else {
+          // Strapi default local configuration.
+          console.log('Not in a Platform.sh Environment. Using default local sqlite configuration.');
+    }
 }
 
 module.exports = {
-  defaultConnection: "default",
+  defaultConnection: 'default',
   connections: {
     default: {
-      connector: "bookshelf",
+      connector: 'bookshelf',
       settings: settings,
       options: options,
-    },
-  },
+    }
+  }
 };

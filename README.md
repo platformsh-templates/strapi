@@ -149,6 +149,11 @@ If you prefer to use MongoDB as your preferred database, you can use it by follo
 <br>
 If you prefer to use MySQL as your preferred database, you can use it by following these steps.
 
+- Install the mysql client by running the following command"
+  ```bash
+  yarn add mysql --save
+  ```
+
 - Replace the `dbposgres` in the services.yaml file with the following:
 
   ```yaml

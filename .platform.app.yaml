@@ -30,7 +30,7 @@ hooks:
 # to the application in the PLATFORM_RELATIONSHIPS variable. The right-hand
 # side is in the form `<service name>:<endpoint name>`.
 relationships:
-  mysqldatabase: "dbmysql:mysql"
+  postgresdatabase: "dbpostgres:postgresql"
 
 # The configuration of app when it is exposed to the web.
 web:
@@ -57,7 +57,7 @@ mounts:
     source: local
     source_path: cache
 
-  # Mount .tmp file in the app folder
+  # Mount .tmp file in the app folder for strapi
   ".tmp":
     source: local
     source_path: app
