@@ -65,8 +65,8 @@ If you prefer to use MySQL as your preferred database, you can use it by followi
 
   ```yaml
   dbmysql:
-  type: oracle-mysql:8.0
-  disk: 256
+    type: oracle-mysql:8.0
+    disk: 256
   ```
 
   Note that the minimum disk size for mysql/oracle-mysql is 256MB.
@@ -76,7 +76,7 @@ If you prefer to use MySQL as your preferred database, you can use it by followi
 
   ```yaml
   relationships:
-    mysqldatabase: "dbmysql:mysql"
+     mysqldatabase: "dbmysql:mysql"
   ```
 
 - Go to the config folder, locate the database.json file and replace the contents with the following

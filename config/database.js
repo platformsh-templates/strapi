@@ -27,7 +27,7 @@ if (config.isValidPlatform() && !config.inBuild()) {
     `Using Platform.sh configuration with relationship ${dbRelationshipMongo}.`
   );
 
-  var mongoSettings = {
+  settings = {
     client: "mongo",
     host: credentials.ip,
     port: credentials.port,
@@ -36,7 +36,7 @@ if (config.isValidPlatform() && !config.inBuild()) {
     password: credentials.password,
   };
 
-  var mongoOptions = {
+  options = {
     ssl: true,
   };
 } else {
@@ -54,17 +54,12 @@ if (config.isValidPlatform() && !config.inBuild()) {
 }
 
 module.exports = {
-  defaultConnection: "mongodb",
+  defaultConnection: "default",
   connections: {
     default: {
-      connector: "bookshelf",
+      connector: "mongoose",
       settings: settings,
       options: options,
-    },
-    mongodb: {
-      connector: "mongoose",
-      settings: mongoSettings,
-      options: mongoOptions,
     },
   },
 };
