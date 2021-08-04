@@ -34,10 +34,10 @@ relationships:
   # postgresdatabase: "dbpostgres:postgresql"
 
   # Un-comment the line below if you would like to use a mysql database
-  # mysqldatabase: "dbmysql:mysql"
+  mysqldatabase: "dbmysql:mysql"
 
   # Un-comment the line below if you would like to use a myslq database
-  mongodatabase: "dbmongo:mongodb"
+  # mongodatabase: "dbmongo:mongodb"
 
 # The configuration of app when it is exposed to the web.
 web:

@@ -1,8 +1,21 @@
 const config = require("platformsh-config").config();
 
 // // Uncomment the line below if you would like to use a MongoDB Database
-let dbRelationshipMongo = "mongodatabase";
+let dbRelationshipMySql = "mysqldatabase";
 
+// Strapi default sqlite settings.
+let settings = {
+  client: "sqlite",
+  filename: process.env.DATABASE_FILENAME || ".tmp/data.db",
+};
+
+let options = {
+  useNullAsDefault: true,
+};
+
+const config = require("platformsh-config").config();
+
+let dbRelationshipMySql = "dbmysql";
 
 // Strapi default sqlite settings.
 let settings = {
@@ -16,23 +29,34 @@ let options = {
 
 if (config.isValidPlatform() && !config.inBuild()) {
   // Platform.sh database configuration.
-  const credentials = config.credentials(dbRelationshipMongo);
+  const credentials = config.credentials(dbRelationshipMySql);
 
   console.log(
-    `Using Platform.sh configuration with relationship ${dbRelationshipMongo}.`
+    `Using Platform.sh configuration with relationship ${dbRelationshipMySql}.`
   );
 
-  settings = {
-    client: "mongo",
+  mySqlSettings = {
+    client: "mysql",
     host: credentials.host,
     port: credentials.port,
     database: credentials.path,
     username: credentials.username,
     password: credentials.password,
   };
-  options = {
+
+  mySqlOptions = {
     ssl: false,
-    authenticationDatabase: "main",
+    debug: false,
+    acquireConnectionTimeout: 100000,
+    pool: {
+      min: 0,
+      max: 10,
+      createTimeoutMillis: 30000,
+      acquireTimeoutMillis: 600000,
+      idleTimeoutMillis: 20000,
+      reapIntervalMillis: 20000,
+      createRetryIntervalMillis: 200,
+    },
   };
 } else {
   if (config.isValidPlatform()) {
@@ -52,7 +76,7 @@ module.exports = {
   defaultConnection: "default",
   connections: {
     default: {
-      connector: "mongoose",
+      connector: "bookshelf",
       settings: settings,
       options: options,
     },
