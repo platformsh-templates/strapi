@@ -12,6 +12,7 @@
   "devDependencies": {},
   "dependencies": {
     "knex": "0.21.18",
+    "mysql": "^2.18.1",
     "pg": "^8.5.1",
     "platformsh-config": "^2.4.1",
     "sqlite3": "5.0.0",

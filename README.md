@@ -58,7 +58,7 @@ This template can be used with other databases that is supported by strapi. Inca
 <details>
 <br>
 <summary style="font-size: 1.2em; weight:bold;">MongoDB</summary>
-If you prefer to use MongoDB as your preferred database, you can use it by following these steps.
+If you decide to use MongoDB as your preferred database, you can use it by following these steps.
 
 - Replace the `dbposgres` in the services.yaml file with the following:
 
@@ -147,12 +147,7 @@ If you prefer to use MongoDB as your preferred database, you can use it by follo
 
 <summary style="font-size: 1.2em; weight:bold;">MySQL</summary>
 <br>
-If you prefer to use MySQL as your preferred database, you can use it by following these steps.
-
-- Install the mysql client by running the following command"
-  ```bash
-  yarn add mysql --save
-  ```
+If you decide to use MySQL as your preferred database, you can use it by following these steps.
 
 - Replace the `dbposgres` in the services.yaml file with the following:
 
@@ -246,6 +241,7 @@ If you prefer to use MySQL as your preferred database, you can use it by followi
   };
   ```
 </details>
+
 ## References
 
 - [Strapi.io](https://strapi.io/)
