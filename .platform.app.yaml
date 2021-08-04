@@ -67,7 +67,7 @@ mounts:
     '/app/.tmp':
         source: local
         source_path: app
-        
+
     # Give write access for extension configuration JSONs.
     'extensions':
         source: local
