@@ -15,7 +15,7 @@ Strapi is a Headless CMS framework written in Node.js.
 - Node.js 12
 - PostgreSQL 12
 - MongoDB 3
-- MySQL 10
+- Oracle MySQL 8
 - Automatic TLS certificates
 - npm-based build
 - OpenAPI spec generation
