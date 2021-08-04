@@ -17,7 +17,7 @@ Strapi is a Headless CMS framework written in Node.js.
 - MongoDB 3
 - Oracle MySQL 8
 - Automatic TLS certificates
-- npm-based build
+- yarn-based build
 - OpenAPI spec generation
 - Automatic public API documentation
 
@@ -54,8 +54,10 @@ You can add additional plugins for Strapi locally by adding them as dependencies
 Customizing modules will differ slightly for each plugin. The `strapi-plugin-documentation` plugin for example generates an OpenAPI specification from your API and public Swagger documentation at `<your-domain>/docs`. Overrides are applied to that process using the `extensions/documentation/config/settings.json` file in this repository. In other cases, there will be a specific `overrides` subdirectory within `extensions/<plugin-name>` you will need to use, so check that plugin's documentation for details. Be aware of whether the plugin needs write access at runtime, and be sure to define matching mounts in your `.platform.app.yaml` file if necessary.
 
 ## Switching Database
-
-### MongoDB
+This template has support for various databases incase you do not to want to use the default PostgreSQL database. The other database options are:
+<details>
+<br>
+<summary style="font-size: 1.2em; weight:bold;">MongoDB</summary>
 If you prefer to use MongoDB as your preferred database, you can use it by following these steps.
 
 - Replace the `dbposgres` in the services.yaml file with the following:
@@ -139,9 +141,12 @@ If you prefer to use MongoDB as your preferred database, you can use it by follo
     },
    },
   };
+</details>
 
-### MySQL
+<details>
 
+<summary style="font-size: 1.2em; weight:bold;">MySQL</summary>
+<br>
 If you prefer to use MySQL as your preferred database, you can use it by following these steps.
 
 - Replace the `dbposgres` in the services.yaml file with the following:
@@ -235,7 +240,7 @@ If you prefer to use MySQL as your preferred database, you can use it by followi
     },
   };
   ```
-
+</details>
 ## References
 
 - [Strapi.io](https://strapi.io/)
