@@ -65,7 +65,7 @@ If you decide to use MongoDB as your preferred database, you can use it by follo
   ```bash
   yarn add strapi-connector-mongoose
   ```
-
+  
 - Replace the `dbposgres` in the services.yaml file with the following:
 
   ```yaml
@@ -160,7 +160,6 @@ If you decide to use MySQL as your preferred database, you can use it by followi
   ```bash
   yarn add mysql
   ```
-
 - Replace the `dbposgres` in the services.yaml file with the following:
 
   ```yaml
