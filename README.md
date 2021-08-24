@@ -183,7 +183,7 @@ If you decide to use MySQL as your preferred database, you can use it by followi
   ```js
   const config = require("platformsh-config").config();
 
-  let dbRelationshipMySql = "dbmysql";
+  let dbRelationshipMySql = "mysqldatabase";
 
   // Strapi default sqlite settings.
   let settings = {
