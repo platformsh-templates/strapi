@@ -150,11 +150,9 @@ If you decide to use MongoDB as your preferred database, you can use it by follo
       },
      },
     };
-    </details>
-    ```
+</details>
 
 <details>
-
 <summary style="font-size: 1.2em; weight:bold;">MySQL</summary>
 <br>
 If you decide to use MySQL as your preferred database, you can use it by following these steps.
