@@ -10,7 +10,8 @@ This template builds a Strapi backend for Platform.sh, which can be used to quic
 
 Strapi is a Headless CMS framework written in Node.js.
 
-**Note: This template is set up for a production Strapi site, you cannot create new collection types at runtime. Please clone, branch, develop, and push to create new collections.**
+**Note: This template is set up for a production Strapi site, you cannot create new collection types at runtime. Please clone, branch, Run dev server locallly
+add the new collections, and push to create new collections and changes to platform.sh.**
 
 ## Features
 
