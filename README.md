@@ -10,8 +10,7 @@ This template builds a Strapi backend for Platform.sh, which can be used to quic
 
 Strapi is a Headless CMS framework written in Node.js.
 
-**Note: This template is set up for a production Strapi site, you cannot create new collection types at runtime. Please clone, branch, Run dev server locallly
-add the new collections, and push to create new collections and changes to platform.sh.**
+**Note: This template is set up for a production Strapi site, you cannot create new collection types at runtime. Please clone, branch, develop, and push to create new collections.**
 
 ## Features
 
@@ -151,9 +150,11 @@ If you decide to use MongoDB as your preferred database, you can use it by follo
       },
      },
     };
-</details>
+    </details>
+    ```
 
 <details>
+
 <summary style="font-size: 1.2em; weight:bold;">MySQL</summary>
 <br>
 If you decide to use MySQL as your preferred database, you can use it by following these steps.
