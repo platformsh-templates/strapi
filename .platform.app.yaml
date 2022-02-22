@@ -34,14 +34,6 @@ relationships:
 
 # The configuration of app when it is exposed to the web.
 web:
-  locations:
-    # For serving the generated OpenAPI specification as part of the documentation.
-    "/docs/spec":
-      root: "extensions/documentation/documentation/1.0.0"
-      allow: true
-      scripts: false
-      index:
-        - full_documentation.json
   commands:
     start: |
       # Production start on all environments
@@ -71,3 +63,9 @@ mounts:
   "public/uploads":
     source: local
     source_path: uploads
+
+source:
+  operations:
+    auto-update:
+      command: |
+        curl -fsS https://raw.githubusercontent.com/platformsh/source-operations/main/setup.sh | { bash /dev/fd/3 sop-autoupdate; } 3<&0
