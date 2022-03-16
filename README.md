@@ -150,8 +150,8 @@ If you decide to use MongoDB as your preferred database, you can use it by follo
       },
      },
     };
+    </details>
     ```
-</details>
 
 <details>
 
